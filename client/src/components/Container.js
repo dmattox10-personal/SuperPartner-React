@@ -17,7 +17,7 @@ import Service from './Service'
 import Vehicles from './Vehicles'
 import Reporting from './Reporting'
 import Login from './Login'
-import FirstRun from './FirstRun'
+import Setup from './Setup'
 
 const Container = props => {
 
@@ -38,8 +38,7 @@ const Container = props => {
                     <PrivateRoute path='/vehicles' component={Vehicles} />
                     <PrivateRoute path='/reporting' component={Reporting} />
                     <Route path='/login' component={Login} />
-                    <Route path='/firstrun' component={FirstRun} />
-                    <Route component={Login} />
+                    <Route path='/setup' component={Setup} />
                 </spContext.Provider>
             </Switch>
         </div>
