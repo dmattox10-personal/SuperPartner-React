@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
 import PouchDB from 'pouchdb-browser'
 
-export const useSecurity = user => {
+export const useSecurity = () => {
 
-    const [auth, setAuth] = useState(null)
-
-    const activeUser = () => {
-        return auth
-    }
+    const [activeUser, setActiveUser] = useState(null)
 
     const loginActiveUser = (username, password) => {
 
@@ -24,6 +20,6 @@ export const useSecurity = user => {
     const registerUser = user => {
 
     }
-    
+
     return [activeUser, loginActiveUser, logoutActiveUser, updateActiveUser, registerUser]
 }

@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
-import './index.css';
+import 'bootswatch/dist/slate/bootstrap.min.css'
+import './CSS/grid.css'
+import './CSS/nav.css'
+import './CSS/modal.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
