@@ -17,9 +17,7 @@ body {
 body h1{
   text-align:center;
   margin-top:35px;
-  color:#333;
   letter-spacing:1px;
-  text-shadow:1px 1px #f2f2f3,-1px -1px #f2f2f3;
 }
 
 .top{

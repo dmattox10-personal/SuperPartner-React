@@ -201,3 +201,12 @@
     color: #000000;
   }
   
+  .container {
+    margin-left: 70px;
+    margin-top: 70px;
+  }
+
+  .container-fluid {
+    margin-left: 70px;
+    margin-top: 70px;
+  }

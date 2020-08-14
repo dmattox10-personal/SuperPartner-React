@@ -23,12 +23,11 @@ import Setup from './Setup'
 
 const Container = props => {
 
-    const [users, addUser, updateUser, deleteUser] = useUsers()
+    const [activeUser, users, addUser, updateUser, deleteUser, loginActiveUser, logoutActiveUser] = useUsers()
     const [vehicles, addVehicle, updateVehicle, deleteVehicle] = useVehicles()
     const [machines, addMachine, updateMachine, deleteMachine] = useMachines()
     const [services, addService, updateService, deleteService] = useService()
     const [locations, addLocation, updateLocation, deleteLocation] = useLocations()
-    const [activeUser, loginActiveUser, logoutActiveUser, updateActiveUser, registerUser] = useSecurity() // try null in useSecurity, then try here if that's a problem
 
     let history = useHistory()
     if (users === null && activeUser === null) {
@@ -37,11 +36,11 @@ const Container = props => {
     else if (users !== null && activeUser === null) {
         history.push('/login')
     }
-
+    console.log(activeUser, users)
     return (
-        <div>
+        <div className='container-fluid'>
             <Switch>
-                <spContext.Provider value={{ users, addUser, updateUser, deleteUser, vehicles, addVehicle, updateVehicle, deleteVehicle, machines, addMachine, updateMachine, deleteMachine, services, addService, updateService, deleteService, locations, addLocation, updateLocation, deleteLocation, activeUser, loginActiveUser, logoutActiveUser, updateActiveUser, registerUser }}>
+                <spContext.Provider value={{ users, addUser, updateUser, deleteUser, vehicles, addVehicle, updateVehicle, deleteVehicle, machines, addMachine, updateMachine, deleteMachine, services, addService, updateService, deleteService, locations, addLocation, updateLocation, deleteLocation, activeUser, loginActiveUser, logoutActiveUser }}>
                     <PrivateRoute path='/landing' component={Landing} />
                     <PrivateRoute path='/locations' component={Locations} />
                     <PrivateRoute path='/machines' component={Machines} />
