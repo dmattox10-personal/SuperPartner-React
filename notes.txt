@@ -3,3 +3,5 @@ Generate UUID on run if it doesn't exist in JSON, and save.
 If UUID doesn't exist on Login, use the UUID as username, and store the password.
 
 Allow that uuid and pass to overwrite JSON to allow login from different computers.
+
+https://alertifyjs.com/
