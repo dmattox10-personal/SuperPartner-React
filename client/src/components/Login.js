@@ -9,8 +9,8 @@ import { spContext } from '../contexts/spContext'
 const Login = props => {
 
     const history = useHistory()
-    const { loginActiveUser, users, activeUser } = useContext(spContext)
-    if (users === null && activeUser === null) {
+    const { loginActiveUser } = useContext(spContext)
+    if (!localStorage.getItem('users') && !localStorage.getItem('user')) {
         history.push('/setup')
     }
 

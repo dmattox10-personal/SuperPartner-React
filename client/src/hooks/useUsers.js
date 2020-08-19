@@ -8,7 +8,7 @@ import { useRemote } from './useRemote'
 export const useUsers = () => {
 
     const history = useHistory()
-    const [users, updateUsers] = useState(null) // We'll find out if this works!
+    const [users, updateUsers] = useState(null)
     const [activeUser, setActiveUser] = useState(null)
     const userDB = new PouchDB('users')
     const [remotesList] = useRemote('users')
@@ -20,9 +20,13 @@ export const useUsers = () => {
                     include_docs: true
                 }).then(results => {
                     updateUsers(results.rows)
+                    localStorage.setItem('users', JSON.stringify(results.rows))
                 })
             }
         })
+        if (localStorage.getItem('user')) {
+            setActiveUser(localStorage.getItem('user'))
+        }
     }, [])
 
     const addUser = values => {
@@ -51,10 +55,9 @@ export const useUsers = () => {
         const { username, password } = values
         userDB.get(username).then(user => {
             if (bcrypt.compareSync(password, user.password)) {
+                localStorage.setItem('user', JSON.stringify(user))
                 setActiveUser(user)
-                console.log(user)
                 history.push('/landing')
-                
             }
             else {
                 console.log(user, username, password)

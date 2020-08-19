@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-class Locations extends Component {
-    render() {
+import { spContext } from '../contexts/spContext'
+
+const Locations = props => {
+
+  const {activerUser, users} = useContext(spContext)
+  console.log(`Locations: ${activerUser}`)
       return (  
         <div>        
             <div id="top" class="top">
@@ -22,7 +26,6 @@ class Locations extends Component {
             </div>
         </div>
       )
-    }
   }
   
   export default Locations;

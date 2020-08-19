@@ -9,7 +9,6 @@ import { useMachines } from '../hooks/useMachines'
 import { useService } from '../hooks/useService'
 import { useVehicles } from '../hooks/useVehicles'
 import { useUsers } from '../hooks/useUsers'
-import { useSecurity } from '../hooks/useSecurity'
 
 import PrivateRoute from './PrivateRoute'
 import Landing from './Landing'
@@ -30,10 +29,10 @@ const Container = props => {
     const [locations, addLocation, updateLocation, deleteLocation] = useLocations()
 
     let history = useHistory()
-    if (users === null && activeUser === null) {
+    if (!localStorage.getItem('users') && !localStorage.getItem('user')) {
         history.push('/setup')
     }
-    else if (users !== null && activeUser === null) {
+    else if (localStorage.getItem('users') && !localStorage.getItem('user')) {
         history.push('/login')
     }
     console.log(activeUser, users)

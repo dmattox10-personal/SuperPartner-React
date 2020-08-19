@@ -1,16 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-
-import { spContext } from '../contexts/spContext'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
-    const { activeUser } = useContext(spContext)
     return (
         <Route
           {...rest}
           render={() => {
-            if (activeUser !== null) {
+            if (localStorage.getItem('user')) {
               return <Component />;
             } else {
               return <Redirect to="/login" />;
